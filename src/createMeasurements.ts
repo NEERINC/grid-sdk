@@ -7,7 +7,7 @@ import Measurement from './types/Measurement';
  */
 type CreateMeasurementsInput = Omit<Measurement, 'id' | 'created_at' | 'updated_at'>[];
 
-async function createSensors(input: CreateMeasurementsInput, apiKey: string, customEndpoint?: string): Promise<HttpResult<Measurement[]>> {
+async function createMeasurements(input: CreateMeasurementsInput, apiKey: string, customEndpoint?: string): Promise<HttpResult<Measurement[]>> {
     const endpoint = customEndpoint || 'https://api.neer.dev/measurements';
     const { status, data: result } = await axios.post<HttpResult<Measurement[]>>(endpoint, input, {
         headers: {
@@ -22,4 +22,4 @@ async function createSensors(input: CreateMeasurementsInput, apiKey: string, cus
     return result;
 }
 
-export default createSensors;
+export default createMeasurements;
