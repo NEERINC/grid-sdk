@@ -76,7 +76,7 @@ const createdSensors = await createSensors(
     createdSites.map(createdSite => {
         return {
             site_id: createdSite.id,
-            name: `${site.name}_flow_meter`, // optional
+            name: `${createdSite.name}_flow_meter`, // optional
             type: 'flow',
             style: 'volumetric', // optional
             system: 'drinking water',
