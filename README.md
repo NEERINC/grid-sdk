@@ -9,12 +9,27 @@ Install the package using NPM
 npm install --save @neerinc/timeseries-importer
 ```
 
+### Example
+
+Assume you have an Excel file of sites, like so:
+| Meter ID | Serial Number | Location               | Latitude | Longitude  | Facility ID |
+| -------- | ------------- | ---------------------- | -------- | ---------- | ----------- |
+| 1        | A882FG        | Moonlight Drive & 79th | 39.10221 | -117.67193 | WMFG-1      |
+| 2        | A882FH        | Moonlight Drive & 80th | 39.10231 | -117.67203 | WMFH-1      |
+| 3        | A882FI        | Moonlight Drive & 81st | 39.10241 | -117.67213 | WMFI-1      |
+
+In this example, these are AMI sensors, so we know that all of the sites will need a single `flow` sensor to go along with it.
+
+Your goal is to map the data from this excel file into a format that the NEER Developers API can accept when creating your sites and sensors.
+
+To accomplish this, we're going to follow these steps:
+
 1. Use the [DataReader](./src/utilities/DataReader) to parse the excel file
    
    _Pass a generic type to the `parse` method to get a strongly typed result_
 
-2. Map the parsed data into the required input to create new sites on the NEER Grid™
-3. Using the returned array of created sites (with their newly added ID's now), create a sensor for each one
+2. Map the parsed data into the required input to create the new sites through the API
+3. Using the returned array of created sites (with their newly added ID's now), construct the sensor input data for each one and then create them through the API
 ```ts
 import { DataReader } from '@neerinc/timeseries-importer';
 import axios from 'axios';
@@ -38,7 +53,7 @@ async function run() {
     const sitesFilePath = join(__dirname, 'sites.xlsx');
     const sitesFileBuffer = readFileSync(sitesFilePath);
     const dataReader = new DataReader();
-    const data = await dataReader.parse<SitesFileFormat>(buffer);
+    const data = await dataReader.parse<SitesFileFormat>('xlsx', buffer);
 
     // Step 2
 
@@ -91,7 +106,7 @@ async function run() {
             'X-API-KEY': apiKey
         }
     });
-    if (status1 !== 200) { /* handle error */ }
+    if (status2 !== 200) { /* handle error */ }
     const createdSites = result1.data; // array of sensors: https://neer.stoplight.io/docs/neer-developers/c2NoOjM1Mjk5Njg1-sensor
 }
 
