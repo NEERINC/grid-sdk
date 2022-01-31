@@ -1,5 +1,5 @@
 {
-    "name": "@neerinc/neer-timeseries-importer",
+    "name": "@neerinc/timeseries-importer",
     "version": "1.0.0",
     "description": "JavaScript library for easily importing timeseries data into NEER Grid™",
     "license": "UNLICENSED",

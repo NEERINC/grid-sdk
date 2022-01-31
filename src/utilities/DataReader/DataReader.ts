@@ -1,4 +1,4 @@
-import { Workbook, Worksheet } from 'exceljs';
+import { Workbook } from 'exceljs';
 import { Readable } from 'stream';
 import {
     DataReaderOptions,
@@ -24,7 +24,7 @@ class DataReader {
         const data = worksheet.getRows(2, worksheet.rowCount);
         if (!data) throw new Error('No data found in file.');
 
-        let result: DataReaderResult<TFormat> = [];
+        const result: DataReaderResult<TFormat> = [];
         data.forEach(row => {
             const data: Record<string, unknown> = {};
             row.eachCell((cell, colNumber) => {
