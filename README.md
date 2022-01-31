@@ -68,7 +68,7 @@ async function run() {
         }
     });
 
-    const { status1, data: result1 } = await axios.post('https://api.neer.dev/sites', createSitesInput, {
+    const { status: status1, data: result1 } = await axios.post('https://api.neer.dev/sites', createSitesInput, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ async function run() {
         }
     });
 
-    const { status2, result2 } = await axios.post('https://api.neer.dev/sensors', createSensorsInput, {
+    const { status: status2, data: result2 } = await axios.post('https://api.neer.dev/sensors', createSensorsInput, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
