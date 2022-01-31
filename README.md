@@ -107,7 +107,7 @@ async function run() {
         }
     });
     if (status2 !== 200) { /* handle error */ }
-    const createdSites = result1.data; // array of sensors: https://neer.stoplight.io/docs/neer-developers/c2NoOjM1Mjk5Njg1-sensor
+    const createdSensors = result2.data; // array of sensors: https://neer.stoplight.io/docs/neer-developers/c2NoOjM1Mjk5Njg1-sensor
 }
 
 
