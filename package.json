@@ -1,6 +1,6 @@
 {
     "name": "@neerinc/grid-sdk",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "description": "JavaScript library for importing timeseries data into NEER Grid™",
     "license": "GPL-3.0",
     "keywords": [
