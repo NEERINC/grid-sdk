@@ -1,27 +1,26 @@
 {
-    "name": "@neerinc/timeseries-importer",
+    "name": "@neerinc/grid-sdk",
     "version": "1.0.1",
     "description": "JavaScript library for easily importing timeseries data into NEER Grid™",
-    "license": "UNLICENSED",
+    "license": "GPL-3.0",
     "keywords": [
         "neer",
-        "timeseries",
-        "importer"
+        "grid",
+        "sdk"
     ],
-    "homepage": "https://github.com/NEERINC/neer-timeseries-importer#readme",
+    "homepage": "https://github.com/NEERINC/grid-sdk#readme",
     "bugs": {
-        "url": "https://github.com/NEERINC/neer-timeseries-importer/issues"
+        "url": "https://github.com/NEERINC/grid-sdk/issues"
     },
     "author": "Matthew Downs <matthew@neer.ai>",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/NEERINC/neer-timeseries-importer.git"
+        "url": "git+https://github.com/NEERINC/grid-sdk.git"
     },
     "main": "index.js",
     "scripts": {
         "prebuild": "rimraf dist",
         "build": "tsc -p .",
-        "postbuild": "node ./scripts/postbuild.js",
         "lint": "eslint .",
         "test": "jest"
     },
